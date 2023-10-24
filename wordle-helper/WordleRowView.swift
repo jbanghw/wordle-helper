@@ -48,9 +48,6 @@ struct LetterBox: View {
             default:
                 wr.colors[idx] = .gray
             }
-            
-            print(idx)
-            print(wr.colors)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .foregroundStyle(.white)

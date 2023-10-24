@@ -29,12 +29,13 @@ class WordleBoard: ObservableObject {
 struct WordleView: View {
     
     @State var board = WordleBoard()
-    @State var solution: [String] = []
+    @State var solution: [String]?
     @State private var addRow = false
     @State private var newWord = ""
     @State private var isShowingSolution = false
     
     func solve() -> [String] {
+        
         var letters: [String] = [
             "abcdefghijklmnopqrstuvwxyz",
             "abcdefghijklmnopqrstuvwxyz",
@@ -63,7 +64,9 @@ struct WordleView: View {
         
         let solver = Solver(firstLetter: letters[0], secondLetter: letters[1], thirdLetter: letters[2], fourthLetter: letters[3], fifthLetter: letters[4], mustInclude: letters[5])
         solver.solve()
+        
         return solver.words
+        
     }
     
     var body: some View {
@@ -110,7 +113,6 @@ struct WordleView: View {
                 }
                 Button("Solve") {
                     solution = self.solve()
-                    print(solution)
                     isShowingSolution.toggle()
                 }
                 .padding(.vertical)
@@ -118,7 +120,11 @@ struct WordleView: View {
                 .foregroundStyle(.green)
                 .bold()
                 .sheet(isPresented: $isShowingSolution) {
-                    WordleSolutionView(solutions: $solution)
+                    solution = nil
+                } content: { [solution] in
+                    if let soln = solution {
+                        WordleSolutionView(solutions: soln)
+                    }
                 }
             }
             .navigationTitle("Wordle Helper")
