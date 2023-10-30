@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-class WordleBoard: ObservableObject {
+@Observable
+class WordleBoard {
     
-    @Published var rows = [WordleRow]()
+    var rows = [WordleRow]()
     
     init() {
         self.rows = []

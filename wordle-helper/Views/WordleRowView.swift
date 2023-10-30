@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WordleRowView: View {
-    @ObservedObject var wordleRow: WordleRow
+    @State var wordleRow: WordleRow
     
     var body: some View {
         
@@ -30,7 +30,7 @@ struct WordleRowView: View {
 }
 
 struct LetterBox: View {
-    @ObservedObject var wr: WordleRow
+    @Bindable var wr: WordleRow
     
     let idx: Int
     

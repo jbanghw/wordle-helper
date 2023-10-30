@@ -9,11 +9,10 @@ import SwiftUI
 
 struct ClearRowsButton: View {
     
-    @ObservedObject var viewModel: WordleViewModel
+    @Bindable var viewModel: WordleViewModel
     
     var body: some View {
         Button("Clear") {
-            viewModel.objectWillChange.send()
             viewModel.board.rows.removeAll()
         }
         .padding(.vertical)

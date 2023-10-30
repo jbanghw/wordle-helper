@@ -7,13 +7,14 @@
 
 import SwiftUI
 
-final class WordleViewModel: ObservableObject {
+@Observable
+final class WordleViewModel {
     
-    @Published var board = WordleBoard()
-    @Published var solution: [String]?
-    @Published var isAddingRow = false
-    @Published var newWord = ""
-    @Published var isShowingSolution = false
+    var board = WordleBoard()
+    var solution: [String]?
+    var isAddingRow = false
+    var newWord = ""
+    var isShowingSolution = false
     
     func solve() {
         var letters: [String] = [

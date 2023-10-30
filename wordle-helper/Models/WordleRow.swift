@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-class WordleRow: ObservableObject, Identifiable {
+@Observable
+class WordleRow: Identifiable {
     let id = UUID()
-    @Published var word: String
-    @Published var colors: [Color] = [.gray, .gray, .gray, .gray, .gray]
+    var word: String
+    var colors: [Color] = [.gray, .gray, .gray, .gray, .gray]
     
     init(_ word: String) {
         self.word = word

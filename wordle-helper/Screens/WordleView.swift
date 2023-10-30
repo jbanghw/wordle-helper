@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WordleView: View {
     
-    @StateObject var viewModel = WordleViewModel()
+    @State var viewModel = WordleViewModel()
     
     var body: some View {
         NavigationView {

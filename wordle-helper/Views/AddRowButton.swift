@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddRowButton: View {
     
-    @ObservedObject var viewModel: WordleViewModel
+    @Bindable var viewModel: WordleViewModel
     
     var body: some View {
         Button {

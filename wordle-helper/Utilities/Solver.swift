@@ -23,8 +23,7 @@ class Solver {
     
     func solve() {
         
-        guard let file = Bundle.main.url(forResource: filename, withExtension: "txt")
-        else{
+        guard let file = Bundle.main.url(forResource: filename, withExtension: "txt") else{
             fatalError("Couldn't find \(filename) in main bundle.")
         }
         

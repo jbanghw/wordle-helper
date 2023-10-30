@@ -71,11 +71,11 @@
 		760A966D2ADF90C9006CF421 /* wordle-helper */ = {
 			isa = PBXGroup;
 			children = (
+				760A966E2ADF90C9006CF421 /* wordle_helperApp.swift */,
 				7652BFE82AECB8BC00A6B516 /* Utilities */,
 				7652BFE72AECB88600A6B516 /* Screens */,
 				7652BFE42AECB77B00A6B516 /* Views */,
 				7652BFDF2AECB4FC00A6B516 /* Models */,
-				760A966E2ADF90C9006CF421 /* wordle_helperApp.swift */,
 				760A96742ADF90CA006CF421 /* Preview Content */,
 				760A96722ADF90CA006CF421 /* Assets.xcassets */,
 			);

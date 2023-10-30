@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SolveButton: View {
     
-    @ObservedObject var viewModel: WordleViewModel
+    @Bindable var viewModel: WordleViewModel
     
     var body: some View {
         Button("Solve") {
