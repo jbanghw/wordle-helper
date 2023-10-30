@@ -43,5 +43,5 @@ struct WordleSolutionView: View {
 }
 
 #Preview {
-        WordleSolutionView(solutions: ["hello", "horse"])
+    WordleSolutionView(solutions: ["hello", "horse"])
 }

@@ -11,6 +11,12 @@
 		760A96712ADF90C9006CF421 /* WordleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760A96702ADF90C9006CF421 /* WordleView.swift */; };
 		760A96732ADF90CA006CF421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 760A96722ADF90CA006CF421 /* Assets.xcassets */; };
 		760A96762ADF90CA006CF421 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 760A96752ADF90CA006CF421 /* Preview Assets.xcassets */; };
+		7652BFDE2AECB16A00A6B516 /* WordleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652BFDD2AECB16A00A6B516 /* WordleViewModel.swift */; };
+		7652BFE12AECB52C00A6B516 /* WordleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652BFE02AECB52C00A6B516 /* WordleRow.swift */; };
+		7652BFE32AECB54C00A6B516 /* WordleBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652BFE22AECB54C00A6B516 /* WordleBoard.swift */; };
+		7652BFE62AECB78700A6B516 /* AddRowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652BFE52AECB78700A6B516 /* AddRowButton.swift */; };
+		7652BFEA2AECB98D00A6B516 /* SolveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652BFE92AECB98D00A6B516 /* SolveButton.swift */; };
+		7652BFEC2AECB9E100A6B516 /* ClearRowsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652BFEB2AECB9E100A6B516 /* ClearRowsButton.swift */; };
 		765A0FA92ADF913200989506 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 765A0FA82ADF913200989506 /* words.txt */; };
 		765A0FAB2ADF915200989506 /* Solver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765A0FAA2ADF915200989506 /* Solver.swift */; };
 		76D064322AE719E200DA74D5 /* WordleSolutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D064312AE719E200DA74D5 /* WordleSolutionView.swift */; };
@@ -23,6 +29,12 @@
 		760A96702ADF90C9006CF421 /* WordleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleView.swift; sourceTree = "<group>"; };
 		760A96722ADF90CA006CF421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		760A96752ADF90CA006CF421 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7652BFDD2AECB16A00A6B516 /* WordleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleViewModel.swift; sourceTree = "<group>"; };
+		7652BFE02AECB52C00A6B516 /* WordleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleRow.swift; sourceTree = "<group>"; };
+		7652BFE22AECB54C00A6B516 /* WordleBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleBoard.swift; sourceTree = "<group>"; };
+		7652BFE52AECB78700A6B516 /* AddRowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRowButton.swift; sourceTree = "<group>"; };
+		7652BFE92AECB98D00A6B516 /* SolveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolveButton.swift; sourceTree = "<group>"; };
+		7652BFEB2AECB9E100A6B516 /* ClearRowsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearRowsButton.swift; sourceTree = "<group>"; };
 		765A0FA82ADF913200989506 /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
 		765A0FAA2ADF915200989506 /* Solver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solver.swift; sourceTree = "<group>"; };
 		76D064312AE719E200DA74D5 /* WordleSolutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleSolutionView.swift; sourceTree = "<group>"; };
@@ -59,12 +71,11 @@
 		760A966D2ADF90C9006CF421 /* wordle-helper */ = {
 			isa = PBXGroup;
 			children = (
+				7652BFE82AECB8BC00A6B516 /* Utilities */,
+				7652BFE72AECB88600A6B516 /* Screens */,
+				7652BFE42AECB77B00A6B516 /* Views */,
+				7652BFDF2AECB4FC00A6B516 /* Models */,
 				760A966E2ADF90C9006CF421 /* wordle_helperApp.swift */,
-				760A96702ADF90C9006CF421 /* WordleView.swift */,
-				76D3A9F82AE6072A007BD723 /* WordleRowView.swift */,
-				76D064312AE719E200DA74D5 /* WordleSolutionView.swift */,
-				765A0FAA2ADF915200989506 /* Solver.swift */,
-				765A0FA82ADF913200989506 /* words.txt */,
 				760A96742ADF90CA006CF421 /* Preview Content */,
 				760A96722ADF90CA006CF421 /* Assets.xcassets */,
 			);
@@ -77,6 +88,45 @@
 				760A96752ADF90CA006CF421 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7652BFDF2AECB4FC00A6B516 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7652BFE02AECB52C00A6B516 /* WordleRow.swift */,
+				7652BFE22AECB54C00A6B516 /* WordleBoard.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7652BFE42AECB77B00A6B516 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				76D3A9F82AE6072A007BD723 /* WordleRowView.swift */,
+				7652BFEB2AECB9E100A6B516 /* ClearRowsButton.swift */,
+				7652BFE52AECB78700A6B516 /* AddRowButton.swift */,
+				7652BFE92AECB98D00A6B516 /* SolveButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7652BFE72AECB88600A6B516 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				760A96702ADF90C9006CF421 /* WordleView.swift */,
+				7652BFDD2AECB16A00A6B516 /* WordleViewModel.swift */,
+				76D064312AE719E200DA74D5 /* WordleSolutionView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		7652BFE82AECB8BC00A6B516 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				765A0FAA2ADF915200989506 /* Solver.swift */,
+				765A0FA82ADF913200989506 /* words.txt */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,11 +200,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7652BFE12AECB52C00A6B516 /* WordleRow.swift in Sources */,
+				7652BFE32AECB54C00A6B516 /* WordleBoard.swift in Sources */,
 				760A96712ADF90C9006CF421 /* WordleView.swift in Sources */,
 				760A966F2ADF90C9006CF421 /* wordle_helperApp.swift in Sources */,
+				7652BFE62AECB78700A6B516 /* AddRowButton.swift in Sources */,
 				76D3A9F92AE6072A007BD723 /* WordleRowView.swift in Sources */,
+				7652BFEC2AECB9E100A6B516 /* ClearRowsButton.swift in Sources */,
 				76D064322AE719E200DA74D5 /* WordleSolutionView.swift in Sources */,
 				765A0FAB2ADF915200989506 /* Solver.swift in Sources */,
+				7652BFDE2AECB16A00A6B516 /* WordleViewModel.swift in Sources */,
+				7652BFEA2AECB98D00A6B516 /* SolveButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
