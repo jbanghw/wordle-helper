@@ -75,6 +75,9 @@ final class WordleViewModel {
             if letter == "-" {
                 rightLetter = "I"
             }
+            if letter == "0" {
+                rightLetter = "O"
+            }
             currWord += rightLetter.lowercased()
         }
         board.rows.append(WordleRow(currWord))
