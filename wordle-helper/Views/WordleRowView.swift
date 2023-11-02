@@ -39,7 +39,7 @@ struct LetterBox: View {
     }
     
     var body: some View {
-        Button(letter.uppercased()) {
+        Button(action: {
             switch wr.colors[idx] {
             case .gray:
                 wr.colors[idx] = .yellow
@@ -48,8 +48,11 @@ struct LetterBox: View {
             default:
                 wr.colors[idx] = .gray
             }
+        }) {
+            Text(letter.uppercased())
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .contentShape(Rectangle())
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .foregroundStyle(.white)
         .background(wr.colors[idx])
         .buttonStyle(.plain)
