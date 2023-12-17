@@ -11,14 +11,16 @@ class Solver {
     let filename: String = "words"
     var words: [String] = []
     var letters: [String] = []
+    let maxLetterCount: [String: Int]
     
-    init(firstLetter: String, secondLetter: String, thirdLetter: String, fourthLetter: String, fifthLetter: String, mustInclude: String) {
+    init(firstLetter: String, secondLetter: String, thirdLetter: String, fourthLetter: String, fifthLetter: String, mustInclude: String, maxLetterCount: [String: Int]) {
         self.letters.append(firstLetter)
         self.letters.append(secondLetter)
         self.letters.append(thirdLetter)
         self.letters.append(fourthLetter)
         self.letters.append(fifthLetter)
         self.letters.append(mustInclude)
+        self.maxLetterCount = maxLetterCount
     }
     
     func solve() {
@@ -43,6 +45,17 @@ class Solver {
                 if possible {
                     for char in self.letters[5] {
                         if !word.contains(char) {
+                            possible = false
+                            break
+                        }
+                    }
+                }
+                if possible {
+                    let currWordLetters = word.map {String($0)}
+                    var currWordCountedLetters = [String: Int]()
+                    currWordLetters.forEach {currWordCountedLetters[$0, default: 0] += 1}
+                    for (l, lCount) in currWordCountedLetters {
+                        if maxLetterCount[l] ?? 5 < lCount {
                             possible = false
                             break
                         }

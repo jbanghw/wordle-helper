@@ -18,8 +18,28 @@ final class WordleViewModel {
     var isShowingSolution = false
     var isShowingAlert = false
     
+    func convertImageToBW(image: UIImage) -> UIImage {
+
+//        let filter = CIFilter(name: "CIPhotoEffectMono")
+        let filter = CIFilter(name: "CIPhotoEffectTonal")
+
+        // convert UIImage to CIImage and set as input
+
+        let ciInput = CIImage(image: image)
+        filter?.setValue(ciInput, forKey: "inputImage")
+
+        // get output CIImage, render as CGImage first to retain proper UIImage scale
+
+        let ciOutput = filter?.outputImage
+        let ciContext = CIContext()
+        let cgImage = ciContext.createCGImage(ciOutput!, from: (ciOutput?.extent)!)
+
+        return UIImage(cgImage: cgImage!)
+    }
+    
     func loadImage(image: UIImage) {
-        guard let cgImage = image.cgImage else { return }
+        let processedImage = convertImageToBW(image: image)
+        guard let cgImage = processedImage.cgImage else { return }
         
         // Create a new image-request handler.
         let requestHandler = VNImageRequestHandler(cgImage: cgImage)
@@ -48,6 +68,8 @@ final class WordleViewModel {
             // Return the string of the top VNRecognizedText instance.
             return observation.topCandidates(1).first?.string
         }
+        
+        print(recognizedStrings)
         
         var letters: [String] = []
         
@@ -94,12 +116,29 @@ final class WordleViewModel {
             ""
         ]
         
+        var maxLetterCount = [String: Int]()
+        letters[0].forEach {maxLetterCount[String($0)] = 5}
+        
         for row in self.board.rows {
             for i in 0..<5 {
                 let currLetter = String(row.word[row.word.index(row.word.startIndex, offsetBy: i)])
                 if row.colors[i] == .gray {
+                    var containsCount = 0
+                    
                     for j in 0..<5 {
-                        letters[j] = letters[j].replacingOccurrences(of: currLetter, with: "")
+                        if String(row.word[row.word.index(row.word.startIndex, offsetBy: j)]) == currLetter && row.colors[j] != .gray {
+                            containsCount += 1
+                        }
+                    }
+                    
+                    maxLetterCount[currLetter] = containsCount
+                    
+                    if containsCount != 0 {
+                        letters[i] = letters[i].replacingOccurrences(of: currLetter, with: "")
+                    } else {
+                        for j in 0..<5 {
+                            letters[j] = letters[j].replacingOccurrences(of: currLetter, with: "")
+                        }
                     }
                 } else if row.colors[i] == .yellow {
                     letters[i] = letters[i].replacingOccurrences(of: currLetter, with: "")
@@ -111,7 +150,7 @@ final class WordleViewModel {
             }
         }
         
-        let solver = Solver(firstLetter: letters[0], secondLetter: letters[1], thirdLetter: letters[2], fourthLetter: letters[3], fifthLetter: letters[4], mustInclude: letters[5])
+        let solver = Solver(firstLetter: letters[0], secondLetter: letters[1], thirdLetter: letters[2], fourthLetter: letters[3], fifthLetter: letters[4], mustInclude: letters[5], maxLetterCount: maxLetterCount)
         solver.solve()
         
         self.solution = solver.words
